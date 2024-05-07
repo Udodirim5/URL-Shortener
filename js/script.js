@@ -1,11 +1,20 @@
 let input = document.getElementById("input");
 let shortenBtn = document.getElementById("shorten");
+let errorDiv = document.getElementById("warning");
+
 
 shortenBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   if (input.value === "") {
-    document.getElementById("warning").innerHTML = "Please add a link";
+    errorDiv.innerHTML = "Please add a link";
+
+    input.style.border = "2px solid red";
+    input.classList.add("error");
+    setTimeout(() => {
+      input.style.border = "";
+      input.classList.remove("error");
+    }, 2000);
   } else {
     shortenBtn.disabled = true;
     shortenBtn.textContent = "Processing...";
@@ -46,4 +55,31 @@ copyBtn.addEventListener("click", () => {
   setTimeout(() => {
     copyBtn.textContent = "Copy";
   }, 2000);
+});
+
+
+input.addEventListener("input", (event) => {
+  let url = event.target.value;
+
+  // Regular expression to validate URL format
+  let urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+
+  if (!urlPattern.test(url)) {
+    errorDiv.textContent = "Invalid URL format";
+    input.setCustomValidity("Invalid URL format");
+    shortenBtn.disabled = true;
+    shortenBtn.textContent = "Invalid URL";
+  } else {
+    errorDiv.textContent = "";
+    input.setCustomValidity("");
+    shortenBtn.disabled = false;
+    shortenBtn.textContent = "Shorten It!";
+  }
+});
+
+document.querySelector("form").addEventListener("submit", function(event) {
+  if (!input.checkValidity()) {
+    event.preventDefault();
+    errorDiv.textContent = "Please enter a valid URL";
+  }
 });

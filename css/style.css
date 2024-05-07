@@ -173,14 +173,6 @@ form input {
   border: 2px solid var(--White);
 }
 
-form input::placeholder {
-  color: var(--Red);
-}
-
-form input:placeholder-shown {
-  border: 2px solid var(--Red);
-}
-
 form button {
   all: unset;
   cursor: pointer;
@@ -190,6 +182,19 @@ form button {
   background-color: var(--Cyan);
   color: var(--White);
 }
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.error {
+  animation: shake 0.4s ease-in-out infinite; 
+}
+
 
 #warning {
   color: var(--Red);
