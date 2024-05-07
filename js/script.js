@@ -2,7 +2,6 @@ let input = document.getElementById("input");
 let shortenBtn = document.getElementById("shorten");
 let errorDiv = document.getElementById("warning");
 
-
 shortenBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -57,7 +56,6 @@ copyBtn.addEventListener("click", () => {
   }, 2000);
 });
 
-
 input.addEventListener("input", (event) => {
   let url = event.target.value;
 
@@ -77,9 +75,21 @@ input.addEventListener("input", (event) => {
   }
 });
 
-document.querySelector("form").addEventListener("submit", function(event) {
+document.querySelector("form").addEventListener("submit", function (event) {
   if (!input.checkValidity()) {
     event.preventDefault();
     errorDiv.textContent = "Please enter a valid URL";
   }
+});
+
+document.getElementById("login").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.querySelector(".login-area").classList.add("is-visible");
+  document.body.style.overflow = "hidden";
+});
+
+document.getElementById("close-btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.querySelector(".login-area").classList.remove("is-visible");
+  document.body.style.overflow = "auto";
 });
