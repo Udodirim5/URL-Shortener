@@ -93,3 +93,26 @@ document.getElementById("close-btn").addEventListener("click", (e) => {
   document.querySelector(".login-area").classList.remove("is-visible");
   document.body.style.overflow = "auto";
 });
+
+document.getElementById("sign-up").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.querySelector(".sign-up-area").classList.add("is-visible");
+  document.body.style.overflow = "hidden";
+});
+
+document.getElementById("close-btn-2").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.querySelector(".sign-up-area").classList.remove("is-visible");
+  document.body.style.overflow = "auto";
+});
+
+document.getElementById("in-login").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.querySelector(".sign-up-area").classList.remove("is-visible");
+  document.querySelector(".login-area").classList.add("is-visible");
+});
+document.getElementById("in-register").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.querySelector(".sign-up-area").classList.add("is-visible");
+  document.querySelector(".login-area").classList.remove("is-visible");
+});

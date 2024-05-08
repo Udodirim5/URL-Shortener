@@ -30,13 +30,60 @@
 
     <div class="right">
       <button id="login">Login</button>
-      <button>Sign Up</button>
+      <button id="sign-up">Sign Up</button>
     </div>
 
     <div class="login-area">
       <button id="close-btn">x</button>
-      <div class="login">
+      <div id="login">
+        <div class="wrapper">
+          <form>
+            <p class="form-login">Login</p>
+            <div class="input-box">
+              <input required="" placeholder="Username" type="text" />
+            </div>
+            <div class="input-box">
+              <input required="" placeholder="Password" type="password" />
+            </div>
+            <div class="remember-forgot">
+              <label><input type="checkbox" />Remember Me</label>
+              <a href="#">Forgot Password</a>
+            </div>
+            <button class="btn" type="submit">Login</button>
+            <div class="register-link">
+              <p>Dont have an account? <button id="in-register">Register</button></p>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="sign-up-area">
+      <button id="close-btn-2">x</button>
 
+      <div id="register">
+        <div class="wrapper">
+          <form>
+            <p class="form-login">Register</p>
+            <div class="input-box">
+              <input required="" placeholder="Email address" type="email" />
+            </div>
+            <div class="input-box">
+              <input required="" placeholder="Username" type="text" />
+            </div>
+            <div class="input-box">
+              <input required="" placeholder="Password" type="password" />
+            </div>
+            <div class="input-box">
+              <input required="" placeholder="Comfirm password" type="password" />
+            </div>
+            <button class="btn" type="submit">Register</button>
+            <div class="register-link">
+              <p>Already have an account? <button id="in-login">log In</button></p>
+            </div>
+          </form>
+        </div>
         
       </div>
     </div>
