@@ -1,6 +1,6 @@
-let input = document.getElementById("input");
-let shortenBtn = document.getElementById("shorten");
-let errorDiv = document.getElementById("warning");
+const input = document.getElementById("input");
+const shortenBtn = document.getElementById("shorten");
+const errorDiv = document.getElementById("warning");
 
 shortenBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -113,6 +113,41 @@ document.getElementById("in-register").addEventListener("click", (e) => {
   document.querySelector(".sign-up-area").classList.add("is-visible");
   document.querySelector(".login-area").classList.remove("is-visible");
 });
+const regBtn = document.getElementById("reg-btn");
+
+regBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const username = document.getElementById("reg-username").value;
+  const regPassword = document.getElementById("reg-password").value;
+  const confirmRegPassword = document.getElementById(
+    "confirm-reg-password"
+  ).value;
+
+  if (!validateEmail(email)) {
+    alert("Please enter a valid email address.");
+    return false;
+  } else if (username == "" || regPassword == "") {
+    alert("All fields are required!");
+    return false;
+  } else if (regPassword != confirmRegPassword) {
+    alert("Passwords do not match!");
+    return false;
+  } else {
+    const userData = {
+      email: email,
+      username: username,
+      password: regPassword,
+    };
+    console.log(userData);
+  }
+});
+
+function validateEmail(email) {
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(email);
+}
 
 // CLIENT SIDE URL SHORTENER
 function shortenUrl() {
@@ -130,11 +165,14 @@ function generateShortUrl() {
   let characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let shortUrl = "";
-  for (let i = 0; i < 6; i++) {
-    shortUrl += characters.charAt(
-      Math.floor(Math.random() * characters.length)
-    );
-  }
+  do {
+    shortUrl = "";
+    for (let i = 0; i < 6; i++) {
+      shortUrl += characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+    }
+  } while (localStorage.getItem(shortUrl));
   return shortUrl;
 }
 
