@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-  --Cyan: #2acfcf;
-  --Dark-Violet: #3b3054;
-  --Dark-Violet-1: #3b30549d;
-  --Red: #f46262;
-  --Gray: #bfbfbf;
   --White: #fff;
-  --Grayish-Violet: #9e9aa7;
+  --Red: #f46262;
+  --Cyan: #2acfcf;
+  --Gray: #bfbfbf;
+  --Dark-Violet: #3b3054;
   --Very-Dark-Blue: #35323e;
+  --Grayish-Violet: #9e9aa7;
+  --Dark-Violet-1: #3b30549d;
   --Very-Dark-Violet: #232127;
 }
 
@@ -19,11 +19,18 @@
   text-decoration: none;
   outline: none;
   border: none;
-  /* border: 1px solid red; */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
 
 body {
   font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
 
 nav {
@@ -79,6 +86,7 @@ nav .right button:nth-child(2) {
   background-color: var(--Cyan);
   color: var(--White);
 }
+
 .sign-up-area,
 .login-area {
   position: absolute;
@@ -113,27 +121,27 @@ nav .right button:nth-child(2) {
 
 .wrapper {
   width: 420px;
-  background: linear-gradient(
-    -45deg,
-    var(--Cyan) 9%,
-    var(--Dark-Violet) 68%,
-    var(--Cyan) 97%
-  );
+  background: linear-gradient(-45deg,
+      var(--Cyan) 9%,
+      var(--Dark-Violet) 68%,
+      var(--Cyan) 97%);
   color: var(--White);
   border-radius: 12px;
   padding: 30px 40px;
 }
+
 .form-login {
   font-size: 36px;
   text-align: center;
 }
+
 .wrapper .input-box {
   position: relative;
   width: 100%;
   height: 50px;
-
   margin: 30px 0;
 }
+
 .input-box input {
   width: 100%;
   height: 100%;
@@ -142,10 +150,11 @@ nav .right button:nth-child(2) {
   outline: none;
   border: 2px solid var(--Grayish-Violet);
   border-radius: 40px;
-  font-size: 16px;
-  color: #fff;
+  font-size: 1rem;
+  color: var(--White);
   padding: 20px 45px 20px 20px;
 }
+
 .input-box input::placeholder {
   color: var(--White);
 }
@@ -153,20 +162,23 @@ nav .right button:nth-child(2) {
 .wrapper .remember-forgot {
   display: flex;
   justify-content: space-between;
-  font-size: 14.5px;
+  font-size: 0.90625rem;
   margin: -15px 0 15px;
 }
+
 .remember-forgot label input {
-  accent-color: #fff;
+  accent-color: var(--Dark-Violet);
   margin-right: 3px;
 }
+
 .remember-forgot a {
   color: var(--White);
-  text-decoration: none;
 }
+
 .remember-forgot a:hover {
   text-decoration: underline;
 }
+
 .wrapper .btn {
   width: 150px;
   height: 45px;
@@ -176,23 +188,25 @@ nav .right button:nth-child(2) {
   border-radius: 40px;
   box-shadow: 0 0 10px var(--Dark-Violet);
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--Dark-Violet);
   font-weight: 600;
   margin-top: 10px;
 }
+
 .wrapper .register-link {
   font-size: 14.5px;
   text-align: center;
   margin: 20px 0 15px;
 }
+
 .register-link p button {
   all: unset;
-  color: #fff;
-  text-decoration: none;
+  color: var(--White);
   font-weight: 600;
 }
-.register-link p a:hover {
+
+.register-link p button:hover {
   text-decoration: underline;
 }
 
@@ -368,6 +382,10 @@ form.short-it button {
 }
 
 #output-action p {
+  color: var(--Cyan);
+}
+
+#output-action p a {
   color: var(--Cyan);
 }
 

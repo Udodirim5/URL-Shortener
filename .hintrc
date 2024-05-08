@@ -13,7 +13,9 @@
       "default",
       {
         "ignore": [
-          "backdrop-filter"
+          "backdrop-filter",
+          "accent-color",
+          "scrollbar-width"
         ]
       }
     ]

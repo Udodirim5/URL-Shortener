@@ -55,10 +55,10 @@
             </div>
           </form>
         </div>
-        
+
       </div>
     </div>
-    
+
     <div class="sign-up-area">
       <button id="close-btn-2">x</button>
 
@@ -80,11 +80,11 @@
             </div>
             <button class="btn" type="submit">Register</button>
             <div class="register-link">
-              <p>Already have an account? <button id="in-login">log In</button></p>
+              <p>Already have an account? <button type="button" id="in-login">log In</button></p>
             </div>
           </form>
         </div>
-        
+
       </div>
     </div>
   </nav>
@@ -108,12 +108,12 @@
         <form class="short-it">
           <div class="form">
             <input id="input" type="url" placeholder="Shorten a link here..." autofocus required />
-            <button id="shorten" type="submit">Shorten It!</button>
+            <button onclick="shortenUrl()" id="shorten" type="submit">Shorten It!</button>
             <p id="warning"></p>
             <div class="drop-box">
-              <div id="output">https://www.frontendmontor.io</div>
+              <div id="output"></div>
               <div id="output-action">
-                <p id="shortened-output">https://reLink/k4Kyk</p>
+                <p id="shortened-output"></p>
                 <button id="copy" type="button">Copy</button>
               </div>
             </div>

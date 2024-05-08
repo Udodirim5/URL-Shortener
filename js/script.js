@@ -19,10 +19,6 @@ shortenBtn.addEventListener("click", (e) => {
     shortenBtn.textContent = "Processing...";
 
     setTimeout(() => {
-      let shortenedURL = "https://reLink/k4Kyk";
-
-      document.getElementById("shortened-output").innerHTML = shortenedURL;
-
       let shorteningURL = input.value;
 
       document.getElementById("output").innerHTML = shorteningURL;
@@ -40,7 +36,7 @@ shortenBtn.addEventListener("click", (e) => {
 let copyBtn = document.getElementById("copy");
 
 copyBtn.addEventListener("click", () => {
-  let textToCopy = document.getElementById("shortened-output");
+  let textToCopy = document.querySelector("#shortened-output a");
 
   let range = document.createRange();
   range.selectNode(textToCopy);
@@ -111,8 +107,41 @@ document.getElementById("in-login").addEventListener("click", (e) => {
   document.querySelector(".sign-up-area").classList.remove("is-visible");
   document.querySelector(".login-area").classList.add("is-visible");
 });
+
 document.getElementById("in-register").addEventListener("click", (e) => {
   e.preventDefault();
   document.querySelector(".sign-up-area").classList.add("is-visible");
   document.querySelector(".login-area").classList.remove("is-visible");
 });
+
+// CLIENT SIDE URL SHORTENER
+function shortenUrl() {
+  let longUrl = input.value;
+  let shortUrl = "shorti.fy/" + generateShortUrl();
+
+  localStorage.setItem(shortUrl, longUrl);
+
+  document.getElementById(
+    "shortened-output"
+  ).innerHTML = `<p><strong>Short URL:</strong> <a href="${shortUrl}" target="_blank">${shortUrl}</a></p>`;
+}
+
+function generateShortUrl() {
+  let characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let shortUrl = "";
+  for (let i = 0; i < 6; i++) {
+    shortUrl += characters.charAt(
+      Math.floor(Math.random() * characters.length)
+    );
+  }
+  return shortUrl;
+}
+
+let path = window.location.pathname.substring(1);
+let longUrl = localStorage.getItem(path);
+if (longUrl) {
+  window.location.href = longUrl;
+} else if (path.startsWith("shorti.fy/")) {
+  document.body.innerHTML = "<h1>Shortened URL not found</h1>";
+}
