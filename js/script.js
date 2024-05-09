@@ -149,6 +149,21 @@ function validateEmail(email) {
   return emailPattern.test(email);
 }
 
+let hamburgarBtn = document.querySelector(".menu-bar");
+hamburgarBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  hamburgarBtn.classList.toggle("active");
+
+  if (hamburgarBtn.classList.contains("active")) {
+    document.querySelector(".menu-ul").classList.add("nav-out-1");
+    document.querySelector("nav .right").classList.add("nav-out-2");
+  } else {
+    document.querySelector(".menu-ul").classList.remove("nav-out-1");
+    document.querySelector("nav .right").classList.remove("nav-out-2");
+  }
+});
+
 // CLIENT SIDE URL SHORTENER
 function shortenUrl() {
   let longUrl = input.value;
