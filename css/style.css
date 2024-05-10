@@ -528,9 +528,8 @@ footer .social li a {
   padding: 0 10px;
   margin: 0 5px;
 }
-footer .i-non{
-  display: none;
-}
+
+
 
 
 @media (min-width : 678px) {
@@ -682,22 +681,24 @@ footer .i-non{
     transform: translateX(-50%);
   }
 
-  .action h2{
+  .action h2 {
     font-size: 2rem;
   }
+
   footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto 1fr 1fr; /* Adjusted row sizes */
+    grid-template-rows: auto 1fr 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
   }
-  
+
   footer .logo {
     grid-column: 1 / span 2;
-    grid-row: 1; 
+    grid-row: 1;
   }
-    footer ul {
+
+  footer ul {
     margin: 10px;
   }
 
