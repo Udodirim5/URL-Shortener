@@ -19,7 +19,7 @@
 <body>
   <nav>
     <div class="left">
-      <a href="#" class="logo">Shortly</a>
+      <a href="./index.html" class="logo">Shortly</a>
 
       <div class="menu-ul">
         <ul>
@@ -46,10 +46,10 @@
           <form>
             <p class="form-login">Login</p>
             <div class="input-box">
-              <input required="" placeholder="Username" type="text" />
+              <input required="" id="login-email" placeholder="Email address" type="email" />
             </div>
             <div class="input-box">
-              <input required="" placeholder="Password" type="password" />
+              <input required="" id="login-password" placeholder="Password" type="password" />
             </div>
             <div class="remember-forgot">
               <label><input type="checkbox" />Remember Me</label>
@@ -68,16 +68,30 @@
     <div class="sign-up-area">
       <button id="close-btn-2">x</button>
 
-      <div id="register-box">
-        <div class="wrapper">
-          <form>
+      <form action="/submit" method="post">
+        <div id="register-box">
+          <div class="wrapper">
             <p class="form-login">Register</p>
+            <div class="input-box">
+              <input required="" id="name" placeholder="Name" type="text" />
+            </div>
             <div class="input-box">
               <input required="" id="email" placeholder="Email address" type="email" />
             </div>
             <div class="input-box">
               <input required="" id="reg-username" placeholder="Username" type="text" />
             </div>
+            <button class="btn" id="next-btn" type="submit">Next</button>
+            <div class="register-link">
+              <p>Already have an account? <button type="button" id="in-login">log In</button></p>
+            </div>
+          </div>
+        </div>
+
+        <div id="register-box2" class="final-reg">
+          <div class="wrapper">
+            <button id="go-back-btn" type="button"><i class="bi bi-chevron-compact-left"></i>Back</button>
+            <p class="form-login">Register</p>
             <div class="input-box">
               <input required="" id="reg-password" placeholder="Password" type="password" />
             </div>
@@ -85,13 +99,9 @@
               <input required="" id="confirm-reg-password" placeholder="Comfirm password" type="password" />
             </div>
             <button class="btn" id="reg-btn" type="submit">Register</button>
-            <div class="register-link">
-              <p>Already have an account? <button type="button" id="in-login">log In</button></p>
-            </div>
-          </form>
+          </div>
         </div>
-
-      </div>
+      </form>
     </div>
   </nav>
   <main>
@@ -170,7 +180,7 @@
   </main>
 
   <footer>
-    <a href="#" class="logo">Shortly</a>
+    <a href="./index.html" class="logo">Shortly</a>
     <ul>
       <li>Features</li>
       <li><a href="">Link Shortening</a></li>
@@ -202,6 +212,7 @@
   </footer>
 
   <script src="./js/script.js"></script>
+  <script src="./js/url-dhorten-function.js"></script>
 </body>
 
 </html>
